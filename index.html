@@ -1,109 +1,311 @@
+# TrueCheck · index.html
+
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TrueCheck</title>
 
 <style>
 
-body{
+*{
 margin:0;
-font-family:Arial;
-background:#0f172a;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, sans-serif;
+background:#081120;
 color:white;
-text-align:center;
+overflow-x:hidden;
 }
 
 header{
-padding:120px 20px 80px 20px;
+padding:80px 20px 60px;
+text-align:center;
+background:
+radial-gradient(circle at top, rgba(37,99,235,0.35), transparent 40%),
+#081120;
+}
+
+.logo{
+width:120px;
+border-radius:28px;
+box-shadow:0 10px 40px rgba(37,99,235,0.35);
+margin-bottom:25px;
 }
 
 h1{
-font-size:56px;
-margin-bottom:10px;
+font-size:72px;
+font-weight:700;
+letter-spacing:2px;
+margin-bottom:15px;
 }
 
-.subtitle{
-font-size:22px;
-opacity:0.8;
-margin-bottom:40px;
+.hero-text{
+font-size:28px;
+opacity:0.92;
+margin-bottom:18px;
 }
 
-button{
-padding:16px 32px;
-font-size:18px;
-border:none;
-border-radius:10px;
-background:#22c55e;
+.hero-sub{
+font-size:20px;
+opacity:0.75;
+margin-bottom:45px;
+}
+
+.install-btn{
+display:inline-block;
+padding:18px 38px;
+border-radius:14px;
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
 color:white;
-cursor:pointer;
-transition:0.2s;
+text-decoration:none;
+font-size:20px;
+font-weight:bold;
+transition:0.25s;
+box-shadow:0 10px 30px rgba(37,99,235,0.35);
 }
 
-button:hover{
-background:#16a34a;
-transform:scale(1.05);
+.install-btn:hover{
+transform:translateY(-3px) scale(1.03);
 }
 
 .section{
-padding:80px 20px;
-background:#111827;
+padding:90px 20px;
+max-width:1200px;
+margin:auto;
 }
 
-.feature{
-margin:30px;
+.section-title{
+font-size:48px;
+text-align:center;
+margin-bottom:20px;
+}
+
+.section-sub{
+text-align:center;
+font-size:22px;
+opacity:0.75;
+margin-bottom:60px;
+}
+
+.mockup{
+width:100%;
+max-width:1100px;
+display:block;
+margin:0 auto;
+border-radius:28px;
+box-shadow:0 20px 60px rgba(0,0,0,0.45);
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:25px;
+margin-top:50px;
+}
+
+.card{
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:22px;
+padding:30px;
+text-align:center;
+backdrop-filter:blur(8px);
+}
+
+.card h3{
+font-size:28px;
+margin-bottom:12px;
+}
+
+.card p{
+font-size:18px;
+opacity:0.82;
+line-height:1.5;
+}
+
+.pricing{
+background:linear-gradient(180deg,#0d1729,#101b31);
+border-radius:30px;
+padding:60px 30px;
+margin-top:60px;
+text-align:center;
+}
+
+.price{
+font-size:58px;
+font-weight:bold;
+color:#60a5fa;
+margin:20px 0;
+}
+
+.price-sub{
+font-size:20px;
+opacity:0.8;
+margin-bottom:25px;
+}
+
+ul{
+list-style:none;
+margin-top:30px;
+}
+
+ul li{
+margin:14px 0;
 font-size:20px;
 }
 
 footer{
-padding:40px;
-opacity:0.6;
+padding:50px 20px;
+text-align:center;
+opacity:0.7;
+font-size:16px;
+}
+
+footer a{
+color:#60a5fa;
+text-decoration:none;
+}
+
+@media(max-width:768px){
+
+h1{
+font-size:52px;
+}
+
+.hero-text{
+font-size:22px;
+}
+
+.section-title{
+font-size:38px;
+}
+
 }
 
 </style>
-
 </head>
 
 <body>
 
 <header>
 
+<img src="icon.png" class="logo">
+
 <h1>TrueCheck</h1>
 
-<div class="subtitle">
-Verify information instantly
+<div class="hero-text">
+Check facts instantly while you browse
 </div>
 
-<div class="subtitle">
-Select text → Click TrueCheck → Know if it's real
+<div class="hero-sub">
+Select text → Click TrueCheck → Get trusted information instantly
 </div>
 
-<button>
-🚀 Coming soon on Chrome
-</button>
+<a class="install-btn" href="#">
+Install Extension
+</a>
 
 </header>
 
-<div class="section">
+<section class="section">
 
-<div class="feature">🟢 Detect if information is true or false</div>
+<div class="section-title">
+Understand any topic fast
+</div>
 
-<div class="feature">🔎 Find reliable sources</div>
+<div class="section-sub">
+Get clear explanations in one click.
+</div>
 
-<div class="feature">🌍 Translate instantly</div>
+<img src="info-screenshot.png" class="mockup">
 
-<div class="feature">📚 Understand any concept</div>
+</section>
+
+<section class="section">
+
+<div class="section-title">
+Why people use TrueCheck
+</div>
+
+<div class="features">
+
+<div class="card">
+<h3>✅ Check</h3>
+<p>
+Verify if information is true, doubtful or false using trusted sources.
+</p>
+</div>
+
+<div class="card">
+<h3>📘 Info</h3>
+<p>
+Understand articles, news and complex topics instantly.
+</p>
+</div>
+
+<div class="card">
+<h3>🌍 Translate</h3>
+<p>
+Translate selected text automatically in multiple languages.
+</p>
+</div>
+
+<div class="card">
+<h3>🧠 Word</h3>
+<p>
+Get meanings, synonyms and grammar explanations in one click.
+</p>
+</div>
 
 </div>
 
+<div class="pricing">
+
+<h2>Free & Premium</h2>
+
+<div class="price">
+USD 2.50/month
+</div>
+
+<div class="price-sub">
+Unlimited access to all TrueCheck features
+</div>
+
+<ul>
+<li>✔ Check facts instantly</li>
+<li>✔ Reliable sources</li>
+<li>✔ Multiple languages</li>
+<li>✔ Unlimited usage</li>
+</ul>
+
+</div>
+
+</section>
+
 <footer>
 
-TrueCheck © 2026<br><br>
-
-<a href="privacy.html">Política de privacidad</a>
+TrueCheck © 2026 ·
+<a href="privacy.html">Privacy Policy</a>
 
 </footer>
 
 </body>
 </html>
+```
+
+# Archivos necesarios
+
+Poné en la misma carpeta:
+
+* index.html
+* privacy.html
+* icon.png
+* info-screenshot.png
+
+Tu privacy.html viejo dejalo exactamente igual porque Google ya lo aprobó.
