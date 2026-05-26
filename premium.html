@@ -181,10 +181,17 @@ footer{
     <li><span>✓</span> Support the development of TrueCheck</li>
   </ul>
 
-  <a 
-class="premium-btn"
+  <div class="email-box">
+  Premium access will be linked to:<br>
+  <strong id="premium-email">your email</strong>
+</div>
+
+<a 
+  id="mp-premium-btn"
+  class="premium-btn"
+  href="#"
 >
-Premium coming soon
+  Continue with Mercado Pago
 </a>
 
   <div class="note">
@@ -205,5 +212,35 @@ Premium coming soon
   © 2026 TrueCheck · Premium subscription
 </footer>
 
+  <footer>
+  © 2026 TrueCheck · Premium subscription
+</footer>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const email = (params.get("email") || "").trim().toLowerCase();
+
+  const emailEl = document.getElementById("premium-email");
+  const btn = document.getElementById("mp-premium-btn");
+
+  const MP_LINK = "PEGAR_ACA_TU_LINK_DE_MERCADO_PAGO";
+
+  if (emailEl) {
+    emailEl.textContent = email || "not provided";
+  }
+
+  if (btn) {
+    if (!email) {
+      btn.textContent = "Open TrueCheck and enter your email first";
+      btn.style.opacity = "0.6";
+      btn.style.pointerEvents = "none";
+    } else {
+      btn.href = `${MP_LINK}?email=${encodeURIComponent(email)}`;
+    }
+  }
+</script>
+
 </body>
 </html>
+  
+
