@@ -218,24 +218,81 @@ footer{
 
 <script>
   const params = new URLSearchParams(window.location.search);
-  const email = (params.get("email") || "").trim().toLowerCase();
 
-  const emailEl = document.getElementById("premium-email");
-  const btn = document.getElementById("mp-premium-btn");
+  const email = (
+    params.get("email") || ""
+  ).trim().toLowerCase();
 
-  const MP_LINK = "PEGAR_ACA_TU_LINK_DE_MERCADO_PAGO";
+  const emailEl =
+    document.getElementById("premium-email");
+
+  const btn =
+    document.getElementById("mp-premium-btn");
 
   if (emailEl) {
-    emailEl.textContent = email || "not provided";
+    emailEl.textContent =
+      email || "not provided";
   }
 
   if (btn) {
+
     if (!email) {
-      btn.textContent = "Open TrueCheck and enter your email first";
+
+      btn.textContent =
+        "Open TrueCheck and enter your email first";
+
       btn.style.opacity = "0.6";
       btn.style.pointerEvents = "none";
+
     } else {
-      btn.href = `${MP_LINK}?email=${encodeURIComponent(email)}`;
+
+      btn.addEventListener("click", async (e) => {
+
+        e.preventDefault();
+
+        btn.textContent = "Loading...";
+
+        try {
+
+          const response = await fetch(
+            "https://truecheck-api.onrender.com/premium/create-subscription",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                email
+              })
+            }
+          );
+
+          const data = await response.json();
+
+          console.log("MP RESPONSE:", data);
+
+          if (data.init_point) {
+
+            window.location.href =
+              data.init_point;
+
+            return;
+          }
+
+          alert("Payment error");
+
+        } catch (error) {
+
+          console.error(error);
+
+          alert("Server error");
+
+        }
+
+        btn.textContent = "Get Premium";
+
+      });
+
     }
   }
 </script>
